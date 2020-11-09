@@ -1,0 +1,1 @@
+# vsa-dss-mini-2020-validator
