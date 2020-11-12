@@ -18,12 +18,55 @@
         <Organisationstyp>Abwasserverband</Organisationstyp>
         <Status>aktiv</Status>
       </SIA405_Base_Abwasser_LV95.Administration.Organisation>
+      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="ega7mQYY2090008a">
+        <Letzte_Aenderung>20201112</Letzte_Aenderung>
+        <DatenherrRef REF="deg5mQXX2000004a"/>
+        <DatenlieferantRef REF="deg5mQXX2000004a"/>
+        <Bezeichnung>foo2</Bezeichnung>
+        <Verlauf>
+          <POLYLINE>
+            <COORD>
+              <C1>2604082.231</C1>
+              <C2>1226172.970</C2>
+            </COORD>
+            <COORD>
+              <C1>2604038.857</C1>
+              <C2>1226137.481</C2>
+            </COORD>
+          </POLYLINE>
+        </Verlauf>
+        <BetreiberRef REF="deg5mQXX2000004a"/>
+        <EigentuemerRef REF="deg5mQXX2000004a"/>
+      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
+      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="egb7mQYY2090008a">
+        <Letzte_Aenderung>20201112</Letzte_Aenderung>
+        <DatenherrRef REF="deg5mQXX2000004a"/>
+        <DatenlieferantRef REF="deg5mQXX2000004a"/>
+        <Bezeichnung>foo3</Bezeichnung>
+        <FunktionHierarchisch>SAA.andere</FunktionHierarchisch>
+        <FunktionHydraulisch>andere</FunktionHydraulisch>
+        <Verlauf>
+          <POLYLINE>
+            <COORD>
+              <C1>2604228.965</C1>
+              <C2>1226292.190</C2>
+            </COORD>
+            <COORD>
+              <C1>2604345.261</C1>
+              <C2>1226310.283</C2>
+            </COORD>
+          </POLYLINE>
+        </Verlauf>
+        <BetreiberRef REF="deg5mQXX2000004a"/>
+        <EigentuemerRef REF="deg5mQXX2000004a"/>
+      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
       <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="ege7mQYY2090008a">
         <Letzte_Aenderung>20201110</Letzte_Aenderung>
         <DatenherrRef REF="deg5mQXX2000004a"/>
         <DatenlieferantRef REF="deg5mQXX2000004a"/>
         <Bezeichnung>foo</Bezeichnung>
-        <FunktionHierarchisch>PAA.Gewaesser</FunktionHierarchisch>
+        <FunktionHierarchisch>PAA.andere</FunktionHierarchisch>
+        <FunktionHydraulisch>andere</FunktionHydraulisch>
         <Verlauf>
           <POLYLINE>
             <COORD>
@@ -38,6 +81,7 @@
         </Verlauf>
         <BetreiberRef REF="deg5mQXX2000004a"/>
         <EigentuemerRef REF="deg5mQXX2000004a"/>
+        <Leitung_nachRef REF="egb7mQYY2090008a"/>
       </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
     </VSADSSMINI_2020_LV95.VSADSSMini>
   </DATASECTION>

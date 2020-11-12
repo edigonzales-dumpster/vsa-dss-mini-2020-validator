@@ -1,0 +1,47 @@
+INTERLIS 2.3;
+
+CONTRACTED MODEL VSADSSMINI_2020_LV95_CHECK_A (de) AT "http://www.vsa.ch/models" 
+   VERSION "09.11.2020" = 
+
+   IMPORTS UNQUALIFIED INTERLIS;
+   IMPORTS VSADSSMINI_2020_LV95;
+
+!! Copyright 2002 - 2020
+!! Verband Schweizer Abwasser- und Gewässerschutzfachleute (VSA), Zürich
+!! www.vsa.ch
+
+!! Die Nutzung dieser INTERLIS-Datei ist lizenzpflichtig!
+!! Die Weitergabe der Originaldatei (als Ganzes oder Teile davon) ist nur 
+!! zusammen mit dem Erwerb einer Lizenz beim VSA durch den Empfänger erlaubt. 
+
+!! Freigegeben für öffentlichen Gebrauch und kommerzielle Anwendung mit Lizenz.
+!!@ comment = " Geprueft mit Compiler Version 5.1.4 (2.10.2020)"
+!! Sachbearbeiter: Stefan Burckhardt / VSA CC Siedlungsentwässerung
+
+   TOPIC Verbands_GEP (ABSTRACT) EXTENDS VSADSSMINI_2020_LV95.VSADSSMini =
+
+   
+      CONSTRAINTS OF Leitung =
+
+         !! Topologie Check: PAA Leitungen müssen Knoten_vonRef und Knoten_nachRef haben
+         !!@ cid=A_PAA_6000_01; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen müssen Knoten_von und Knoten_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung";
+         !!@ name = A_PAA_6000_01                        
+         !!MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND DEFINED(Knoten_nachRef))
+           !!   OR
+             !! isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! Topologie Check: PAA Leitungen dürfen keine Leitung_nachRef haben
+         !!@ cid=A_PAA_6000_02; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         
+         !!@ ilivalid.check = error
+         !!!!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"         
+         !!@ name = A_PAA_6000_02                                 
+          MANDATORY CONSTRAINT NOT (DEFINED (Leitung_nachRef))
+              OR
+              isEnumSubVal(FunktionHierarchisch, #SAA);
+
+      END;
+              
+
+   END Verbands_GEP;
+END VSADSSMINI_2020_LV95_CHECK_A.
