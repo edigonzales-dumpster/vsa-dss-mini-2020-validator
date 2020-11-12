@@ -23,6 +23,7 @@
         <DatenherrRef REF="deg5mQXX2000004a"/>
         <DatenlieferantRef REF="deg5mQXX2000004a"/>
         <Bezeichnung>foo</Bezeichnung>
+        <FunktionHierarchisch>PAA.Gewaesser</FunktionHierarchisch>
         <Verlauf>
           <POLYLINE>
             <COORD>

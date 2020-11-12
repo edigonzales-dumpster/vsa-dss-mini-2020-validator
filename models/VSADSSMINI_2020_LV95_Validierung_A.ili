@@ -1,0 +1,31 @@
+INTERLIS 2.3;
+
+CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de)
+AT "http://www.geo.so.ch"
+VERSION "2020-11-12"  =
+  IMPORTS VSADSSMINI_2020_LV95;
+  
+  VIEW TOPIC VSADSSMini_Validierung = 
+  DEPENDS ON VSADSSMINI_2020_LV95.VSADSSMini;
+  
+	VIEW Leitung
+    	PROJECTION OF VSADSSMINI_2020_LV95.VSADSSMini.Leitung;
+    =
+        ALL OF Leitung;
+        !!!!@ ilivalid.msg = "Attribut 'Rechtsvorschrift' muss definiert sein."
+        !!!!MANDATORY CONSTRAINT DEFINED(Rechtsvorschrift);
+        !!!!@ ilivalid.msg = "Attribut 'Kanton' muss definiert sein."
+        !!!!MANDATORY CONSTRAINT DEFINED(Kanton);
+        !!!!@ ilivalid.msg = "Attribut 'Gemeinde' muss definiert sein."
+        !!!!MANDATORY CONSTRAINT DEFINED(Gemeinde);
+        !!!!@ ilivalid.msg = "Attribut 'OffiziellerTitel' muss definiert sein."
+        !!!!MANDATORY CONSTRAINT DEFINED(OffiziellerTitel);
+        !!!!@ name = checkDocumentURL
+        !!!!@ ilivalid.msg = "Dokument 'https://geo.so.ch/docs/ch.so.arp.zonenplaene/Zonenplaene_pdf/{TextImWeb}' wurde nicht gefunden."
+        !!!!MANDATORY CONSTRAINT SO_FunctionsExt.isHttpResource(TextImWeb, "https://geo.so.ch/docs/ch.so.arp.zonenplaene/Zonenplaene_pdf/");
+        MANDATORY CONSTRAINT FunktionHierarchisch == #PAA.andere; 
+    END Leitung;
+    
+  END VSADSSMini_Validierung;
+
+END VSADSSMINI_2020_LV95_Validierung_A.
