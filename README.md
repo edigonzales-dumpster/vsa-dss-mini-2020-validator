@@ -2,7 +2,9 @@
 
 ## todo
 - 'bessere' (besser unterscheidbare) OID
-- Gradle Build o.ä. für Automatisation der Tests.
+- Gradle Build o.ä. für Automatisation der Tests
+  * Anzahl Errors etc. muss überprüft werden.
+- ...
 
 ## Datenbank für Erfassung von Testdaten
 ```
