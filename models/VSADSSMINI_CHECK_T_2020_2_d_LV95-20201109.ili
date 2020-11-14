@@ -1,0 +1,1484 @@
+!! Constraints für Trägerschaft T
+INTERLIS 2.3;
+
+CONTRACTED MODEL VSADSSMINI_2020_LV95_CHECK_T (de) AT "http://www.vsa.ch/models" 
+   VERSION "09.11.2020" = 
+
+   IMPORTS UNQUALIFIED INTERLIS;
+   IMPORTS VSADSSMINI_2020_LV95;
+
+!! Copyright 2002 - 2020
+!! Verband Schweizer Abwasser- und Gewässerschutzfachleute (VSA), Zürich
+!! www.vsa.ch
+
+!! Die Nutzung dieser INTERLIS-Datei ist lizenzpflichtig!
+																		
+																			
+																		
+												  
+															 
+!! Die Weitergabe der Originaldatei (als Ganzes oder Teile davon) ist nur 
+!! zusammen mit dem Erwerb einer Lizenz beim VSA durch den Empfänger erlaubt. 
+
+!! Freigegeben für öffentlichen Gebrauch und kommerzielle Anwendung mit Lizenz.
+!! Geprüft mit Commpiler Version 5.1.4 (2.10.2020)
+!! Sachbearbeiter: Stefan Burckhardt / VSA CC Siedlungsentwässerung
+
+   TOPIC Traegerschaft (ABSTRACT) EXTENDS VSADSSMINI_2020_LV95.VSADSSMini =
+
+      CONSTRAINTS OF Rohrprofil =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6025_01; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+      END; !! of Rohrprofil
+
+
+      CONSTRAINTS OF Rohrprofil_Geometrie =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6022_01; ccat=error; cprof=a; cmsg="MANDATORY Reihenfolge"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Reihenfolge);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6022_02; ccat=error; cprof=a; cmsg="MANDATORY X"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (X);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6022_03; ccat=error; cprof=a; cmsg="MANDATORY Y"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Y);
+
+      END; !! of Rohrprofil_Geometrie
+
+																 
+
+      CONSTRAINTS OF Knoten =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_01; ccat=error; cprof=a; cmsg="MANDATORY ARA_Nr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (ARA_Nr);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6001_02; ccat=error; cprof=a; cmsg="MANDATORY Baujahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Baujahr)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_04; ccat=error; cprof=a; cmsg="MANDATORY BaulicherZustand"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (BaulicherZustand);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_05; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6001_06; ccat=error; cprof=a; cmsg="MANDATORY Deckelkote"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Deckelkote)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																   
+													
+
+														 
+         !!@ cid=T_ALL_6001_08; ccat=error; cprof=a; cmsg="MANDATORY Finanzierung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Finanzierung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_10; ccat=error; cprof=a; cmsg="MANDATORY Funktion"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Funktion);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_12; ccat=error; cprof=a; cmsg="MANDATORY FunktionHierarchisch"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (FunktionHierarchisch);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_13; ccat=error; cprof=a; cmsg="MANDATORY Lage"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lage);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_15; ccat=error; cprof=a; cmsg="MANDATORY Lagegenauigkeit"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lagegenauigkeit);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6001_17; ccat=error; cprof=a; cmsg="MANDATORY Nutzungsart_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_geplant)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_19; ccat=error; cprof=a; cmsg="MANDATORY Nutzungsart_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_21; ccat=error; cprof=a; cmsg="MANDATORY Sanierungsbedarf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Sanierungsbedarf);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6001_22; ccat=error; cprof=a; cmsg="MANDATORY Sohlenkote"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Sohlenkote)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_23; ccat=error; cprof=a; cmsg="MANDATORY Status"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Status);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6001_25; ccat=error; cprof=a; cmsg="MANDATORY Zugaenglichkeit"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Zugaenglichkeit)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6001_26; ccat=error; cprof=a; cmsg="MANDATORY Zustandserhebung_Jahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Zustandserhebung_Jahr);
+
+      END; !! of Knoten
+
+
+      CONSTRAINTS OF Leitung =
+
+         !! Topologie Check: PAA Leitungen müssen Knoten_vonRef und Knoten_nachRef haben
+         !!@ cid=T_PAA_6000_01; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen müssen Knoten_von und Knoten_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung";
+         MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND DEFINED(Knoten_nachRef))
+              OR
+              isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Topologie Check: PAA Leitungen dürfen keine Leitung_nachRef haben
+         !!@ cid=T_PAA_6000_02; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+          MANDATORY CONSTRAINT NOT ( DEFINED (Leitung_nachRef))
+              OR
+              isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Topologie Check: Bei SAA Leitungen muss definiert sein: Knoten_vonRef und (Knoten_nachRef oder Leitung_nachRef)
+         !!@ cid=T_SAA_6000_03; ccat=error; cprof=a; cmsg="TOPOLOGY SAA Leitungen: Knoten_von und (Knoten_nach oder Leitung_nach) Attribut zwingend"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND (DEFINED(Knoten_nachRef) OR DEFINED(Leitung_nachRef)))
+              OR
+              isEnumSubVal(FunktionHierarchisch, "#PAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_04; ccat=error; cprof=a; cmsg="MANDATORY Baujahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Baujahr)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_06; ccat=error; cprof=a; cmsg="MANDATORY BaulicherZustand"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (BaulicherZustand);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_07; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																   
+													
+
+														 
+         !!@ cid=T_ALL_6000_09; ccat=error; cprof=a; cmsg="MANDATORY Finanzierung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Finanzierung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_10; ccat=error; cprof=a; cmsg="MANDATORY FunktionHierarchisch"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (FunktionHierarchisch);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_12; ccat=error; cprof=a; cmsg="MANDATORY FunktionHydraulisch"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (FunktionHydraulisch)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_14; ccat=error; cprof=a; cmsg="MANDATORY Hoehengenauigkeit_nach"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Hoehengenauigkeit_nach)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_16; ccat=error; cprof=a; cmsg="MANDATORY Hoehengenauigkeit_von"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Hoehengenauigkeit_von)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_17; ccat=error; cprof=a; cmsg="MANDATORY Hydr_Belastung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Hydr_Belastung_Ist)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_18; ccat=error; cprof=a; cmsg="MANDATORY Kote_nach"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Kote_nach)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_19; ccat=error; cprof=a; cmsg="MANDATORY Kote_von"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Kote_von)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_20; ccat=error; cprof=a; cmsg="MANDATORY LaengeEffektiv"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (LaengeEffektiv)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_22; ccat=error; cprof=a; cmsg="MANDATORY Lagebestimmung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lagebestimmung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_24; ccat=error; cprof=a; cmsg="MANDATORY Leckschutz"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Leckschutz);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_25; ccat=error; cprof=a; cmsg="MANDATORY Lichte_Breite"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lichte_Breite)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_26; ccat=error; cprof=a; cmsg="MANDATORY Lichte_Hoehe"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lichte_Hoehe)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_28; ccat=error; cprof=a; cmsg="MANDATORY Material"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Material)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_30; ccat=error; cprof=a; cmsg="MANDATORY Nutzungsart_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_geplant)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_32; ccat=error; cprof=a; cmsg="MANDATORY Nutzungsart_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_Ist);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_34; ccat=error; cprof=a; cmsg="MANDATORY Profiltyp"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Profiltyp)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_36; ccat=error; cprof=a; cmsg="MANDATORY Reliner_Art"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Reliner_Art)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_37; ccat=error; cprof=a; cmsg="MANDATORY Reliner_Nennweite"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Reliner_Nennweite)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_39; ccat=error; cprof=a; cmsg="MANDATORY Sanierungsbedarf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Sanierungsbedarf);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_40; ccat=error; cprof=a; cmsg="MANDATORY Status"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Status);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_41; ccat=error; cprof=a; cmsg="MANDATORY Verlauf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Verlauf);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_42; ccat=error; cprof=a; cmsg="MANDATORY Wandrauhigkeit"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Wandrauhigkeit)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_43; ccat=error; cprof=a; cmsg="MANDATORY WBW_Basisjahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (WBW_Basisjahr)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_45; ccat=error; cprof=a; cmsg="MANDATORY WBW_Bauart"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (WBW_Bauart)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6000_46; ccat=error; cprof=a; cmsg="MANDATORY Wiederbeschaffungswert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Wiederbeschaffungswert)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, "#SAA");
+
+						
+
+
+										
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6000_47; ccat=error; cprof=a; cmsg="MANDATORY Zustandserhebung_Jahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Zustandserhebung_Jahr);
+
+      END; !! of Leitung
+																																 
+												  
+
+								  
+
+
+												
+
+											 
+																														   
+										   
+												  
+										  
+
+
+      CONSTRAINTS OF SK =
+
+				   
+
+
+											 
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															 
+											  
+
+														 
+																															  
+											   
+
+											 
+																															   
+											   
+												  
+														 
+																																 
+												  
+
+														 
+																															 
+											  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+														 
+         !!@ cid=T_ALL_6021_02; ccat=error; cprof=a; cmsg="MANDATORY Informationsquelle"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Informationsquelle);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															
+											 
+
+														 
+         !!@ cid=T_ALL_6021_03; ccat=error; cprof=a; cmsg="MANDATORY Sachbearbeiter"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Sachbearbeiter);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6021_04; ccat=error; cprof=a; cmsg="MANDATORY Standortname"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Standortname);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6021_06; ccat=error; cprof=a; cmsg="MANDATORY Steuerung_Fernwirkung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Steuerung_Fernwirkung);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6021_07; ccat=error; cprof=a; cmsg="MANDATORY WBW_Basisjahr"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (WBW_Basisjahr)
+                                                 ;
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6021_08; ccat=error; cprof=a; cmsg="MANDATORY Wiederbeschaffungswert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Wiederbeschaffungswert)
+                                                 ;
+      END; !! of SK
+
+
+      CONSTRAINTS OF Ueberlauf_Foerderaggregat =
+
+														 
+																															 
+											  
+
+														 
+																															  
+											   
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=T_PAA_6002_02; ccat=error; cprof=a; cmsg="MANDATORY Art"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Art)
+                                                 ;
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6002_03; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+      END; !! of Ueberlauf_Foerderaggregat
+																															 
+											  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+      CONSTRAINTS OF Teileinzugsgebiet =
+																																		  
+														   
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_01; ccat=error; cprof=a; cmsg="MANDATORY Abflussbegrenzung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Abflussbegrenzung_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_02; ccat=error; cprof=a; cmsg="MANDATORY Abflussbegrenzung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Abflussbegrenzung_Ist);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_03; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_05; ccat=error; cprof=a; cmsg="MANDATORY Direkteinleitung_in_Gewaesser_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Direkteinleitung_in_Gewaesser_geplant);
+
+											 
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+								   
+
+
+									   
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_07; ccat=error; cprof=a; cmsg="MANDATORY Direkteinleitung_in_Gewaesser_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Direkteinleitung_in_Gewaesser_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_09; ccat=error; cprof=a; cmsg="MANDATORY Entwaesserungssystem_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entwaesserungssystem_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_11; ccat=error; cprof=a; cmsg="MANDATORY Entwaesserungssystem_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entwaesserungssystem_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_12; ccat=error; cprof=a; cmsg="MANDATORY Flaeche"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Flaeche);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_13; ccat=error; cprof=a; cmsg="MANDATORY Perimeter"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Perimeter);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_15; ccat=error; cprof=a; cmsg="MANDATORY Retention_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Retention_geplant);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_17; ccat=error; cprof=a; cmsg="MANDATORY Retention_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Retention_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_19; ccat=error; cprof=a; cmsg="MANDATORY Versickerung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Versickerung_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6003_21; ccat=error; cprof=a; cmsg="MANDATORY Versickerung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Versickerung_Ist);
+
+      END; !! of Teileinzugsgebiet
+																																																 
+																  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+      CONSTRAINTS OF SK_Autonome_Messstelle =
+																																			   
+																
+
+      END; !! of SK_Autonome_Messstelle
+																																	
+													 
+
+														 
+																																	   
+														
+
+      CONSTRAINTS OF SK_Duekeroberhaupt =
+																																																		  
+																		 
+
+      END; !! of SK_Duekeroberhaupt
+																																		  
+														   
+
+														 
+																															
+											 
+
+      CONSTRAINTS OF SK_Einleitstelle =
+																																			 
+															  
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_01; ccat=error; cprof=a; cmsg="MANDATORY Ausfuehrender"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ausfuehrender);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_02; ccat=error; cprof=a; cmsg="MANDATORY Auslaufrohr_Lichte_Hoehe"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Auslaufrohr_Lichte_Hoehe);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_03; ccat=error; cprof=a; cmsg="MANDATORY Datum_Untersuchung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Datum_Untersuchung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_05; ccat=error; cprof=a; cmsg="MANDATORY Einfluss_Aeusserer_Aspekt"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einfluss_Aeusserer_Aspekt);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_10; ccat=error; cprof=a; cmsg="MANDATORY Gewaesserart"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Gewaesserart);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_11; ccat=error; cprof=a; cmsg="MANDATORY Gewaesserspezifische_Entlastungsfracht_NH4_N_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Gewaesserspezifische_Entlastungsfracht_NH4_N_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_12; ccat=error; cprof=a; cmsg="MANDATORY Gewaesserspezifische_Entlastungsfracht_NH4_N_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Gewaesserspezifische_Entlastungsfracht_NH4_N_Ist);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_13; ccat=error; cprof=a; cmsg="MANDATORY Gewaesserspezifische_Entlastungsfracht_NH4_N_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Gewaesserspezifische_Entlastungsfracht_NH4_N_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_15; ccat=error; cprof=a; cmsg="MANDATORY Handlungsbedarf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Handlungsbedarf);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_17; ccat=error; cprof=a; cmsg="MANDATORY Immissionsorientierte_Berechnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Immissionsorientierte_Berechnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_18; ccat=error; cprof=a; cmsg="MANDATORY Oberflaechengewaesser"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Oberflaechengewaesser);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_20; ccat=error; cprof=a; cmsg="MANDATORY Relevanzmatrix"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Relevanzmatrix);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_22; ccat=error; cprof=a; cmsg="MANDATORY Vergleich_letzte_Untersuchung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Vergleich_letzte_Untersuchung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6018_23; ccat=error; cprof=a; cmsg="MANDATORY Wasserspiegel_Hydraulik"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Wasserspiegel_Hydraulik);
+
+											 
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+      END; !! of SK_Einleitstelle
+
+
+      CONSTRAINTS OF SK_Pumpwerk =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_01; ccat=error; cprof=a; cmsg="MANDATORY Aggregatezahl"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Aggregatezahl);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_02; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_03; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_Ist);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																 
+												  
+
+														 
+																															 
+											  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+														 
+         !!@ cid=T_ALL_6016_05; ccat=error; cprof=a; cmsg="MANDATORY Foerderaggregat_Nutzungsart_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Foerderaggregat_Nutzungsart_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_06; ccat=error; cprof=a; cmsg="MANDATORY Foerderhoehe_geodaetisch"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Foerderhoehe_geodaetisch);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_07; ccat=error; cprof=a; cmsg="MANDATORY FoerderstromMax"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (FoerderstromMax);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_08; ccat=error; cprof=a; cmsg="MANDATORY FoerderstromMin"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (FoerderstromMin);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_09; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_10; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_12; ccat=error; cprof=a; cmsg="MANDATORY Pumpenregime"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Pumpenregime);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_13; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_geplant);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_14; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															  
+											   
+
+														 
+         !!@ cid=T_ALL_6016_15; ccat=error; cprof=a; cmsg="MANDATORY Stauraum"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Stauraum);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6016_16; ccat=error; cprof=a; cmsg="MANDATORY Volumen_Pumpensumpf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Volumen_Pumpensumpf);
+
+											 
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+      END; !! of SK_Pumpwerk
+
+
+      CONSTRAINTS OF SK_Regenueberlauf =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_01; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_02; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Ist);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_03; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_04; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_Ist);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_05; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_06; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_07; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_08; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																	   
+														
+
+														 
+         !!@ cid=T_ALL_6011_09; ccat=error; cprof=a; cmsg="MANDATORY Flaeche_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Flaeche_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_10; ccat=error; cprof=a; cmsg="MANDATORY Flaeche_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Flaeche_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																		   
+															
+
+														 
+																																	   
+														
+
+														 
+         !!@ cid=T_ALL_6011_11; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_12; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																		  
+														   
+
+														 
+																																																 
+																  
+
+														 
+																																			 
+															  
+
+														 
+																																																		 
+																		
+
+														 
+																															
+											 
+
+														 
+         !!@ cid=T_ALL_6011_13; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_14; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_15; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_16; ccat=error; cprof=a; cmsg="MANDATORY Qan_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_17; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_18; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																	  
+													   
+
+														 
+         !!@ cid=T_ALL_6011_19; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_20; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_Ist);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_22; ccat=error; cprof=a; cmsg="MANDATORY Springt_an"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Springt_an);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																	
+													 
+
+														 
+																															  
+											   
+
+														 
+         !!@ cid=T_ALL_6011_23; ccat=error; cprof=a; cmsg="MANDATORY Stauraum"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Stauraum);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_24; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_25; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_26; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_27; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_28; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_29; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_30; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_31; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_32; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_Ist_optimiert);
+
+											 
+																																	 
+													 
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6011_34; ccat=error; cprof=a; cmsg="MANDATORY Wehr_Art"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Wehr_Art);
+
+											 
+																																			  
+															  
+												  
+      END; !! of SK_Regenueberlauf
+
+
+      CONSTRAINTS OF SK_Regenueberlaufbecken =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															 
+											  
+
+														 
+																															  
+											   
+
+											 
+																															   
+											   
+												  
+														 
+																																 
+												  
+
+														 
+																																 
+												  
+
+														 
+																															 
+											  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+														 
+         !!@ cid=T_ALL_6014_01; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_02; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_03; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_04; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_05; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_06; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_07; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsanteil_NH4_N_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsanteil_NH4_N_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_08; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_09; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_10; ccat=error; cprof=a; cmsg="MANDATORY Entlastungsfracht_NH4_N_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Entlastungsfracht_NH4_N_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_11; ccat=error; cprof=a; cmsg="MANDATORY Flaeche_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Flaeche_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_12; ccat=error; cprof=a; cmsg="MANDATORY Flaeche_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Flaeche_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																		   
+															
+
+														 
+																																	   
+														
+
+														 
+         !!@ cid=T_ALL_6014_13; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_14; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																		  
+														   
+
+														 
+																																																 
+																  
+
+														 
+																																			 
+															  
+
+														 
+																																																		 
+																		
+
+														 
+																															
+											 
+
+														 
+         !!@ cid=T_ALL_6014_15; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_16; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_17; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																		   
+															
+
+														 
+         !!@ cid=T_ALL_6014_18; ccat=error; cprof=a; cmsg="MANDATORY Nutzinhalt_Klaerteil"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzinhalt_Klaerteil);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_19; ccat=error; cprof=a; cmsg="MANDATORY Qan_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_20; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_21; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_23; ccat=error; cprof=a; cmsg="MANDATORY Regenbecken_Anordnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Regenbecken_Anordnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																																	  
+													   
+
+														 
+         !!@ cid=T_ALL_6014_24; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_25; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_Ist);
+
+											 
+																																  
+												  
+												  
+														 
+																																	
+													 
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															  
+											   
+
+														 
+         !!@ cid=T_ALL_6014_26; ccat=error; cprof=a; cmsg="MANDATORY Stauraum"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Stauraum);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_27; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_28; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_29; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufdauer_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufdauer_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_30; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_31; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_32; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufhaeufigkeit_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufhaeufigkeit_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_33; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_34; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6014_35; ccat=error; cprof=a; cmsg="MANDATORY Ueberlaufmenge_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Ueberlaufmenge_Ist_optimiert);
+
+											 
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+      END; !! of SK_Regenueberlaufbecken
+
+
+      CONSTRAINTS OF SK_Regenrueckhaltebecken_kanal =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_01; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_02; ccat=error; cprof=a; cmsg="MANDATORY Einwohner_Dim_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohner_Dim_Ist);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_03; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_04; ccat=error; cprof=a; cmsg="MANDATORY Fremdwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Fremdwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															 
+											  
+
+											 
+																																  
+												  
+												  
+														 
+																																   
+													
+
+														 
+																																		  
+														   
+
+														 
+																																																 
+																  
+
+														 
+																																			 
+															  
+
+														 
+																																																		 
+																		
+
+														 
+																															
+											 
+
+														 
+         !!@ cid=T_ALL_6013_06; ccat=error; cprof=a; cmsg="MANDATORY Notueberlauf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Notueberlauf);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_07; ccat=error; cprof=a; cmsg="MANDATORY Nutzinhalt"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Nutzinhalt);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_08; ccat=error; cprof=a; cmsg="MANDATORY Qab_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qab_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_09; ccat=error; cprof=a; cmsg="MANDATORY Qab_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qab_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_10; ccat=error; cprof=a; cmsg="MANDATORY Qab_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qab_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_12; ccat=error; cprof=a; cmsg="MANDATORY Regenbecken_Anordnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Regenbecken_Anordnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_13; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_geplant);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6013_14; ccat=error; cprof=a; cmsg="MANDATORY Schmutzabwasseranfall_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Schmutzabwasseranfall_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															  
+											   
+
+														 
+         !!@ cid=T_ALL_6013_15; ccat=error; cprof=a; cmsg="MANDATORY Stauraum"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Stauraum);
+
+											 
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+      END; !! of SK_Regenrueckhaltebecken_kanal
+
+
+      CONSTRAINTS OF SK_Trennbauwerk =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															 
+											  
+
+														 
+																															  
+											   
+
+														 
+         !!@ cid=T_ALL_6015_02; ccat=error; cprof=a; cmsg="MANDATORY Art"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Art);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_03; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_04; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_05; ccat=error; cprof=a; cmsg="MANDATORY Mehrbelastung_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Mehrbelastung_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_06; ccat=error; cprof=a; cmsg="MANDATORY Qan_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_geplant);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_07; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_08; ccat=error; cprof=a; cmsg="MANDATORY Qan_Ist_optimiert"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Qan_Ist_optimiert);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6015_09; ccat=error; cprof=a; cmsg="MANDATORY Stauraum"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Stauraum);
+
+      END; !! of SK_Trennbauwerk
+																															
+											 
+
+														 
+																																			 
+															  
+
+      CONSTRAINTS OF SK_Uebrige =
+																																		 
+														  
+
+      END; !! of SK_Uebrige
+																																																	
+																	
+
+														 
+																																			  
+															   
+
+      CONSTRAINTS OF Kennlinie_Stuetzpunkt =
+																																   
+													
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6020_01; ccat=error; cprof=a; cmsg="MANDATORY Abfluss"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Abfluss);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6020_03; ccat=error; cprof=a; cmsg="MANDATORY Status"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Status);
+
+      END; !! of Kennlinie_Stuetzpunkt
+																																	  
+													   
+
+											 
+																																  
+												  
+												  
+														 
+																																	
+													 
+
+      CONSTRAINTS OF Bauwerkskomponente =
+																															  
+											   
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6010_02; ccat=error; cprof=a; cmsg="MANDATORY Art"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Art);
+
+      END; !! of Bauwerkskomponente
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+								
+
+
+      CONSTRAINTS OF Massnahme =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_01; ccat=error; cprof=a; cmsg="MANDATORY Beschreibung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Beschreibung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_02; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+											 
+																															   
+											   
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_03; ccat=error; cprof=a; cmsg="MANDATORY Datum_Eingang"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Datum_Eingang);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_04; ccat=error; cprof=a; cmsg="MANDATORY Handlungsbedarf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Handlungsbedarf);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_05; ccat=error; cprof=a; cmsg="MANDATORY Jahr_Umsetzung_geplant"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Jahr_Umsetzung_geplant);
+
+											 
+																																  
+												  
+												  
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_07; ccat=error; cprof=a; cmsg="MANDATORY Kategorie"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Kategorie);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_5000_09; ccat=error; cprof=a; cmsg="MANDATORY Prioritaet"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Prioritaet);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+																															
+											 
+
+														 
+																																	  
+													   
+
+											 
+																																  
+												  
+												  
+														 
+																																	
+													 
+
+														 
+         !!@ cid=T_ALL_5000_11; ccat=error; cprof=a; cmsg="MANDATORY Status"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Status);
+
+      END; !! of Massnahme
+																																	 
+													 
+												  
+											 
+																																			  
+															  
+												  
+						   
+
+
+      CONSTRAINTS OF ALR =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6108_02; ccat=error; cprof=a; cmsg="MANDATORY Beseitigung_Ist"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Beseitigung_Ist);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6108_03; ccat=error; cprof=a; cmsg="MANDATORY Bezeichnung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6108_04; ccat=error; cprof=a; cmsg="MANDATORY Einwohnerwerte"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Einwohnerwerte);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6108_05; ccat=error; cprof=a; cmsg="MANDATORY Lage"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Lage);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ cid=T_ALL_6108_07; ccat=error; cprof=a; cmsg="MANDATORY Sanierungsbedarf"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         MANDATORY CONSTRAINT DEFINED (Sanierungsbedarf);
+
+      END; !! of ALR
+
+!!@comment = "Ende des Topics / Fin du topic"
+   END Traegerschaft;
+!!@comment = "Ende des Modells / Fin du modèle"
+END VSADSSMINI_2020_LV95_CHECK_T.
+
+														 
+																														   
+											
+
+								   
+
+														 
+															 

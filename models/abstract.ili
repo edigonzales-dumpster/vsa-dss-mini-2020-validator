@@ -1,7 +1,7 @@
 INTERLIS 2.3;
 
-CONTRACTED MODEL VSADSSMINI_2020_LV95_CHECK_A (de) AT "http://www.vsa.ch/models" 
-   VERSION "09.11.2020" = 
+CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/models" 
+   VERSION "2020-11-09" = 
 
    IMPORTS UNQUALIFIED INTERLIS;
    IMPORTS VSADSSMINI_2020_LV95;
@@ -17,6 +17,9 @@ CONTRACTED MODEL VSADSSMINI_2020_LV95_CHECK_A (de) AT "http://www.vsa.ch/models"
 !! Freigegeben für öffentlichen Gebrauch und kommerzielle Anwendung mit Lizenz.
 !!@ comment = " Geprueft mit Compiler Version 5.1.4 (2.10.2020)"
 !! Sachbearbeiter: Stefan Burckhardt / VSA CC Siedlungsentwässerung
+
+!! Modell umbenannt und für ilivalidator angepasst. 
+!! Stefan Ziegler / Amt für Geoinformation, Kanton Solothurn
 
    TOPIC Verbands_GEP (ABSTRACT) EXTENDS VSADSSMINI_2020_LV95.VSADSSMini =
 

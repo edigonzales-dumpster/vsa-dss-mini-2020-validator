@@ -1,71 +1,207 @@
 INTERLIS 2.3;
 
-CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de)
-AT "http://www.geo.so.ch"
-VERSION "2020-11-12"  =
-  
-  IMPORTS VSADSSMINI_2020_LV95;
-  IMPORTS UNQUALIFIED INTERLIS;
-  
-  VIEW TOPIC VSADSSMini_Validierung = 
-  DEPENDS ON VSADSSMINI_2020_LV95.VSADSSMini;
-  
-	VIEW v_Leitung
-    	PROJECTION OF VSADSSMINI_2020_LV95.VSADSSMini.Leitung;
-    =
-        ALL OF Leitung;
-                
+CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/models" 
+   VERSION "2020-11-09" = 
+
+   IMPORTS UNQUALIFIED INTERLIS;
+   IMPORTS VSADSSMINI_2020_LV95;
+
+!! Copyright 2002 - 2020
+!! Verband Schweizer Abwasser- und Gewässerschutzfachleute (VSA), Zürich
+!! www.vsa.ch
+
+!! Die Nutzung dieser INTERLIS-Datei ist lizenzpflichtig!
+!! Die Weitergabe der Originaldatei (als Ganzes oder Teile davon) ist nur 
+!! zusammen mit dem Erwerb einer Lizenz beim VSA durch den Empfänger erlaubt. 
+
+!! Freigegeben für öffentlichen Gebrauch und kommerzielle Anwendung mit Lizenz.
+!!@ comment = " Geprueft mit Compiler Version 5.1.4 (2.10.2020)"
+!! Sachbearbeiter: Stefan Burckhardt / VSA CC Siedlungsentwässerung
+
+!! Modell umbenannt und für ilivalidator angepasst. 
+!! - Metaattribute
+!! - Aufzähltypen: Anführungszeichen entfernt
+!! Stefan Ziegler / Amt für Geoinformation, Kanton Solothurn
+
+   TOPIC Verbands_GEP (ABSTRACT) EXTENDS VSADSSMINI_2020_LV95.VSADSSMini =
+
+   
+      CONSTRAINTS OF Leitung =
+
+         !! Topologie Check: PAA Leitungen müssen Knoten_vonRef und Knoten_nachRef haben
+         !!@ cid=A_PAA_6000_01; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen müssen Knoten_von und Knoten_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung";
+         !!@ name = A_PAA_6000_01                        
+         !!MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND DEFINED(Knoten_nachRef))
+           !!   OR
+             !! isEnumSubVal(FunktionHierarchisch, #SAA);
+
          !! Topologie Check: PAA Leitungen dürfen keine Leitung_nachRef haben
-         !!@ ilivalid.check = error
-         !!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"         
-         !!@ name = A_PAA_6000_02                        
-          !!MANDATORY CONSTRAINT NOT (DEFINED (Leitung_nachRef))
-            !!  OR
-              !!isEnumSubVal(FunktionHierarchisch, #SAA);
-        
-         !! Frage: Trifft eh nie ein, da bereits im VSADSSMINI_2020_LV95-Modell
-         !! zwingend ist?
-         !! PAA Constraint (gilt nur für PAA)
-         !!@ ilivalid.check = error
-         !!!!@ ilivalid.msg = "MANDATORY Bezeichnung"         
-         !!@ name = A_PAA_6000_04               
-         !!MANDATORY CONSTRAINT DEFINED (Bezeichnung)
-           !!                                      OR
-             !!                                    isEnumSubVal(FunktionHierarchisch, #SAA);
-         !! PAA Constraint (gilt nur für PAA)
-         !!@ ilivalid.check = error
-         !!!!@ ilivalid.msg = "MANDATORY Finanzierung"
-         !!@ name = A_PAA_6000_06         
-         !!MANDATORY CONSTRAINT DEFINED (Finanzierung)
-          !!                                       OR
-            !!                                     isEnumSubVal(FunktionHierarchisch, #SAA);
-                                                 
-        !! Allgemeiner Constraint (gilt für PAA und SAA)
-        !!@ ilivalid.check = error
-        !!!!@ ilivalid.msg = "MANDATORY FunktionHierarchisch"
-        !!@ name = A_PAA_6000_07         
-         !!MANDATORY CONSTRAINT DEFINED (FunktionHierarchisch);
+         !!@ cid=A_PAA_6000_02; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
          
-        !! PAA Constraint (gilt nur für PAA)         
-        !!@ ilivalid.check = error
-        !!!!@ ilivalid.msg = "MANDATORY FunktionHydraulisch"
-        !!@ name = A_PAA_6000_09
-        MANDATORY CONSTRAINT DEFINED (FunktionHydraulisch)
+         !!@ ilivalid.check = error
+         !!!!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"         
+         !!@ name = A_PAA_6000_02                                 
+          !!MANDATORY CONSTRAINT NOT (DEFINED (Leitung_nachRef))
+           !!   OR
+           !!   isEnumSubVal(FunktionHierarchisch, #SAA);
+           
+           
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Bezeichnung"
+         !!@ name = A_PAA_6000_04                                                                                                                                                                                       
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung)
                                                  OR
                                                  isEnumSubVal(FunktionHierarchisch, #SAA);
 
-    END v_Leitung;
-    
-         !! CONSTRAINTS OF Leitung =
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ cid=A_PAA_6000_06; ccat=error; cprof=a; cmsg="MANDATORY Finanzierung"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Finanzierung"
+         !!@ name = A_PAA_6000_06                                                                                                                                                                                
+         MANDATORY CONSTRAINT DEFINED (Finanzierung)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);           
+            
+         !! Testobjekt: egc7mQYY2090008a
+           
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY FunktionHierarchisch"
+         !!@ name = A_PAA_6000_07                                                                                                                                                                       
+         MANDATORY CONSTRAINT DEFINED (FunktionHierarchisch);           
+           
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY FunktionHydraulisch"         
+         !!@ name = A_PAA_6000_09                                                                                                                                                              
+         MANDATORY CONSTRAINT DEFINED (FunktionHydraulisch)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
 
-!!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben" 
-!!@ name = A_PAA_6000_02
-         !! MANDATORY CONSTRAINT NOT ( DEFINED (Leitung_nachRef))
-           !!   OR
-             !! isEnumSubVal(FunktionHierarchisch, #SAA);
-      !!END; !! of Leitung
-    
-    
-  END VSADSSMini_Validierung;
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Hydr_Belastung_Ist"         
+         !!@ name = A_PAA_6000_12                                                                                                                                                     
+         MANDATORY CONSTRAINT DEFINED (Hydr_Belastung_Ist)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
 
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Kote_nach"         
+         !!@ name = A_PAA_6000_13                                                                                                                                             
+         MANDATORY CONSTRAINT DEFINED (Kote_nach)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);           
+           
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Kote_von"         
+         !!@ name = A_PAA_6000_14                                                                                                                                    
+         MANDATORY CONSTRAINT DEFINED (Kote_von)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY LaengeEffektiv"         
+         !!@ name = A_PAA_6000_15                                                                                                                           
+         MANDATORY CONSTRAINT DEFINED (LaengeEffektiv)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Lichte_Breite"         
+         !!@ name = A_PAA_6000_18                                                                                                                  
+         MANDATORY CONSTRAINT DEFINED (Lichte_Breite)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);           
+           
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Lichte_Hoehe"         
+         !!@ name = A_PAA_6000_19                                                                                                         
+         MANDATORY CONSTRAINT DEFINED (Lichte_Hoehe)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Nutzungsart_geplant"         
+         !!@ name = A_PAA_6000_22                                                                                                
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_geplant)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Nutzungsart_Ist"         
+         !!@ name = A_PAA_6000_24                                                                                       
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_Ist)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);           
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Profiltyp"         
+         !!@ name = A_PAA_6000_26                                                                              
+         MANDATORY CONSTRAINT DEFINED (Profiltyp)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Status"         
+         !!@ name = A_PAA_6000_29                                                                     
+         MANDATORY CONSTRAINT DEFINED (Status)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! TODO: Testobjekt.  
+         
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Verlauf"         
+         !!@ name = A_PAA_6000_30                                                            
+         MANDATORY CONSTRAINT DEFINED (Verlauf)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Wandrauhigkeit"         
+         !!@ name = A_PAA_6000_31                                                   
+         MANDATORY CONSTRAINT DEFINED (Wandrauhigkeit)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+           
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY WBW_Basisjahr"         
+         !!@ name = A_PAA_6000_32                                          
+         MANDATORY CONSTRAINT DEFINED (WBW_Basisjahr)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY WBW_Bauart"         
+         !!@ name = A_PAA_6000_34                                 
+         MANDATORY CONSTRAINT DEFINED (WBW_Bauart)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! PAA Constraint (gilt nur für PAA)         
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Wiederbeschaffungswert"         
+         !!@ name = A_PAA_6000_35                        
+         MANDATORY CONSTRAINT DEFINED (Wiederbeschaffungswert)
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+      END;
+              
+
+   END Verbands_GEP;
 END VSADSSMINI_2020_LV95_Validierung_A.
