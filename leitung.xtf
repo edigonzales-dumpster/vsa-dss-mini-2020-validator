@@ -50,62 +50,6 @@
         <BetreiberRef REF="chFubar00000001"/>
         <EigentuemerRef REF="chFubar00000001"/>
       </VSADSSMINI_2020_LV95.VSADSSMini.Knoten>
-      <VSADSSMINI_2020_LV95.VSADSSMini.Knoten TID="chFubar60010002">
-        <Letzte_Aenderung>20201115</Letzte_Aenderung>
-        <DatenherrRef REF="chFubar00000001"/>
-        <DatenlieferantRef REF="chFubar00000001"/>
-        <Bezeichnung>foo12</Bezeichnung>
-        <FunktionHierarchisch>PAA</FunktionHierarchisch>
-        <Lage>
-          <COORD>
-            <C1>2603917.688</C1>
-            <C2>1225510.652</C2>
-          </COORD>
-        </Lage>
-        <BetreiberRef REF="chFubar00000001"/>
-        <EigentuemerRef REF="chFubar00000001"/>
-      </VSADSSMINI_2020_LV95.VSADSSMini.Knoten>
-      <VSADSSMINI_2020_LV95.VSADSSMini.Knoten TID="chFubar60010004">
-        <Letzte_Aenderung>20201116</Letzte_Aenderung>
-        <DatenherrRef REF="chFubar00000001"/>
-        <DatenlieferantRef REF="chFubar00000001"/>
-        <Bezeichnung>foo14</Bezeichnung>
-        <BetreiberRef REF="chFubar00000001"/>
-        <EigentuemerRef REF="chFubar00000001"/>
-      </VSADSSMINI_2020_LV95.VSADSSMini.Knoten>
-      <VSADSSMINI_2020_LV95.VSADSSMini.Knoten TID="chFubar60010003">
-        <Letzte_Aenderung>20201116</Letzte_Aenderung>
-        <DatenherrRef REF="chFubar00000001"/>
-        <DatenlieferantRef REF="chFubar00000001"/>
-        <ARA_Nr>246401</ARA_Nr>
-        <Bezeichnung>foo13</Bezeichnung>
-        <FunktionHierarchisch>SAA</FunktionHierarchisch>
-        <BetreiberRef REF="chFubar00000001"/>
-        <EigentuemerRef REF="chFubar00000001"/>
-      </VSADSSMINI_2020_LV95.VSADSSMini.Knoten>
-      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000004">
-        <Letzte_Aenderung>20201110</Letzte_Aenderung>
-        <DatenherrRef REF="chFubar00000001"/>
-        <DatenlieferantRef REF="chFubar00000001"/>
-        <Bezeichnung>foo</Bezeichnung>
-        <FunktionHierarchisch>PAA.andere</FunktionHierarchisch>
-        <FunktionHydraulisch>andere</FunktionHydraulisch>
-        <Verlauf>
-          <POLYLINE>
-            <COORD>
-              <C1>2604228.965</C1>
-              <C2>1226292.190</C2>
-            </COORD>
-            <COORD>
-              <C1>2604086.075</C1>
-              <C2>1226181.775</C2>
-            </COORD>
-          </POLYLINE>
-        </Verlauf>
-        <BetreiberRef REF="chFubar00000001"/>
-        <EigentuemerRef REF="chFubar00000001"/>
-        <Leitung_nachRef REF="chFubar60000003"/>
-      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
       <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000002">
         <Letzte_Aenderung>20201112</Letzte_Aenderung>
         <DatenherrRef REF="chFubar00000001"/>
@@ -130,12 +74,55 @@
         <Knoten_nachRef REF="chFubar60000007"/>
         <Knoten_vonRef REF="chFubar60000008"/>
       </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
+      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000003">
+        <Letzte_Aenderung>20201112</Letzte_Aenderung>
+        <DatenherrRef REF="chFubar00000001"/>
+        <DatenlieferantRef REF="chFubar00000001"/>
+        <Bezeichnung>foo3</Bezeichnung>
+        <FunktionHierarchisch>SAA.andere</FunktionHierarchisch>
+        <Verlauf>
+          <POLYLINE>
+            <COORD>
+              <C1>2604228.965</C1>
+              <C2>1226292.190</C2>
+            </COORD>
+            <COORD>
+              <C1>2604345.261</C1>
+              <C2>1226310.283</C2>
+            </COORD>
+          </POLYLINE>
+        </Verlauf>
+        <BetreiberRef REF="chFubar00000001"/>
+        <EigentuemerRef REF="chFubar00000001"/>
+        <Leitung_nachRef REF="chFubar60000005"/>
+      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
+      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000004">
+        <Letzte_Aenderung>20201110</Letzte_Aenderung>
+        <DatenherrRef REF="chFubar00000001"/>
+        <DatenlieferantRef REF="chFubar00000001"/>
+        <Bezeichnung>foo</Bezeichnung>
+        <FunktionHierarchisch>PAA.andere</FunktionHierarchisch>
+        <Verlauf>
+          <POLYLINE>
+            <COORD>
+              <C1>2604228.965</C1>
+              <C2>1226292.190</C2>
+            </COORD>
+            <COORD>
+              <C1>2604086.075</C1>
+              <C2>1226181.775</C2>
+            </COORD>
+          </POLYLINE>
+        </Verlauf>
+        <BetreiberRef REF="chFubar00000001"/>
+        <EigentuemerRef REF="chFubar00000001"/>
+        <Leitung_nachRef REF="chFubar60000003"/>
+      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
       <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000005">
         <Letzte_Aenderung>20201114</Letzte_Aenderung>
         <DatenherrRef REF="chFubar00000001"/>
         <DatenlieferantRef REF="chFubar00000001"/>
         <Bezeichnung>foo6</Bezeichnung>
-        <FunktionHydraulisch>andere</FunktionHydraulisch>
         <Verlauf>
           <POLYLINE>
             <COORD>
@@ -159,29 +146,6 @@
         <FunktionHierarchisch>PAA.andere</FunktionHierarchisch>
         <BetreiberRef REF="chFubar00000001"/>
         <EigentuemerRef REF="chFubar00000001"/>
-      </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
-      <VSADSSMINI_2020_LV95.VSADSSMini.Leitung TID="chFubar60000003">
-        <Letzte_Aenderung>20201112</Letzte_Aenderung>
-        <DatenherrRef REF="chFubar00000001"/>
-        <DatenlieferantRef REF="chFubar00000001"/>
-        <Bezeichnung>foo3</Bezeichnung>
-        <FunktionHierarchisch>SAA.andere</FunktionHierarchisch>
-        <FunktionHydraulisch>andere</FunktionHydraulisch>
-        <Verlauf>
-          <POLYLINE>
-            <COORD>
-              <C1>2604228.965</C1>
-              <C2>1226292.190</C2>
-            </COORD>
-            <COORD>
-              <C1>2604345.261</C1>
-              <C2>1226310.283</C2>
-            </COORD>
-          </POLYLINE>
-        </Verlauf>
-        <BetreiberRef REF="chFubar00000001"/>
-        <EigentuemerRef REF="chFubar00000001"/>
-        <Leitung_nachRef REF="chFubar60000005"/>
       </VSADSSMINI_2020_LV95.VSADSSMini.Leitung>
     </VSADSSMINI_2020_LV95.VSADSSMini>
   </DATASECTION>

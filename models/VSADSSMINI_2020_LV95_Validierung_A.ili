@@ -1,6 +1,6 @@
 INTERLIS 2.3;
 
-CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/models" 
+CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "https://geo.so.ch/models" 
    VERSION "2020-11-09" = 
 
    IMPORTS UNQUALIFIED INTERLIS;
@@ -18,34 +18,146 @@ CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/m
 !!@ comment = " Geprueft mit Compiler Version 5.1.4 (2.10.2020)"
 !! Sachbearbeiter: Stefan Burckhardt / VSA CC Siedlungsentwässerung
 
-!! Modell umbenannt und für ilivalidator angepasst. 
+!! Modell umbenannt und für ilivalidator angepasst: 
 !! - Metaattribute
 !! - Aufzähltypen: Anführungszeichen entfernt
 !! Stefan Ziegler / Amt für Geoinformation, Kanton Solothurn
 
    TOPIC Verbands_GEP (ABSTRACT) EXTENDS VSADSSMINI_2020_LV95.VSADSSMini =
 
+      CONSTRAINTS OF Rohrprofil =
+
+      END; !! of Rohrprofil
+   
+   	  CONSTRAINTS OF Rohrprofil_Geometrie =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Reihenfolge"         
+         !!@ name = A_ALL_6022_01                                          
+         MANDATORY CONSTRAINT DEFINED (Reihenfolge);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY X"         
+         !!@ name = A_ALL_6022_02                                                   
+         MANDATORY CONSTRAINT DEFINED (X);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Y"         
+         !!@ name = A_ALL_6022_03                                                            
+         MANDATORY CONSTRAINT DEFINED (Y);
+
+      END; 
+
+   
+      CONSTRAINTS OF Knoten =
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY ARA_Nr"         
+         !!@ name = A_ALL_6001_01                                 
+         MANDATORY CONSTRAINT DEFINED (ARA_Nr);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Bezeichnung"         
+         !!@ name = A_ALL_6001_03                                          
+         MANDATORY CONSTRAINT DEFINED (Bezeichnung)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Deckelkote"         
+         !!@ name = A_ALL_6001_04                                                   
+         MANDATORY CONSTRAINT DEFINED (Deckelkote)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Finanzierung"         
+         !!@ name = A_ALL_6001_06                                                            
+         MANDATORY CONSTRAINT DEFINED (Finanzierung)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Funktion"         
+         !!@ name = A_ALL_6001_08                                                                     
+         MANDATORY CONSTRAINT DEFINED (Funktion)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY FunktionHierarchisch"         
+         !!@ name = A_ALL_6001_10                                                                           
+         MANDATORY CONSTRAINT DEFINED (FunktionHierarchisch);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Lage"         
+         !!@ name = A_ALL_6001_11                                                                                    
+         MANDATORY CONSTRAINT DEFINED (Lage)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Nutzungsart_geplant"         
+         !!@ name = A_ALL_6001_14                                                                                             
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_geplant)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Nutzungsart_Ist"         
+         !!@ name = A_ALL_6001_16                                                                                                      
+         MANDATORY CONSTRAINT DEFINED (Nutzungsart_Ist)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Sohlenkote"         
+         !!@ name = A_ALL_6001_18                                                                                                               
+         MANDATORY CONSTRAINT DEFINED (Sohlenkote)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Status"         
+         !!@ name = A_ALL_6001_19                                                                                                                        
+         MANDATORY CONSTRAINT DEFINED (Status)
+                                                 OR
+                                                 FunktionHierarchisch == #SAA;
+
+      END; 
    
       CONSTRAINTS OF Leitung =
 
          !! Topologie Check: PAA Leitungen müssen Knoten_vonRef und Knoten_nachRef haben
-         !!@ cid=A_PAA_6000_01; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen müssen Knoten_von und Knoten_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung";
-         !!@ name = A_PAA_6000_01                        
-         !!MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND DEFINED(Knoten_nachRef))
-           !!   OR
-             !! isEnumSubVal(FunktionHierarchisch, #SAA);
-
-         !! Topologie Check: PAA Leitungen dürfen keine Leitung_nachRef haben
-         !!@ cid=A_PAA_6000_02; ccat=error; cprof=a; cmsg="TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"; cattr = "Metaattribute.Datenherr, Bezeichnung"; 
-         
          !!@ ilivalid.check = error
-         !!!!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"         
+         !!@ ilivalid.msg = "TOPOLOGY PAA Leitungen müssen Knoten_von und Knoten_nach Attribut haben"         
+         !!@ name = A_PAA_6000_01                        
+         MANDATORY CONSTRAINT (DEFINED(Knoten_vonRef) AND DEFINED(Knoten_nachRef))
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
+         !! Topologie Check: PAA Leitungen dürfen keine Leitung_nachRef haben         
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "TOPOLOGY PAA Leitungen dürfen kein Leitung_nach Attribut haben"         
          !!@ name = A_PAA_6000_02                                 
-          !!MANDATORY CONSTRAINT NOT (DEFINED (Leitung_nachRef))
-           !!   OR
-           !!   isEnumSubVal(FunktionHierarchisch, #SAA);
-           
-           
+         MANDATORY CONSTRAINT NOT (DEFINED (Leitung_nachRef))
+                                                 OR
+                                                 isEnumSubVal(FunktionHierarchisch, #SAA);
+
          !! PAA Constraint (gilt nur für PAA)
          !!@ ilivalid.check = error
          !!@ ilivalid.msg = "MANDATORY Bezeichnung"
@@ -62,8 +174,6 @@ CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/m
          MANDATORY CONSTRAINT DEFINED (Finanzierung)
                                                  OR
                                                  isEnumSubVal(FunktionHierarchisch, #SAA);           
-            
-         !! Testobjekt: egc7mQYY2090008a
            
          !! Allgemeiner Constraint (gilt für PAA und SAA)
          !!@ ilivalid.check = error
@@ -202,6 +312,48 @@ CONTRACTED MODEL VSADSSMINI_2020_LV95_Validierung_A (de) AT "http://www.vsa.ch/m
                                                  isEnumSubVal(FunktionHierarchisch, #SAA);
       END;
               
+      CONSTRAINTS OF SK =
 
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Informationsquelle"         
+         !!@ name = A_ALL_6021_02                                 
+         MANDATORY CONSTRAINT DEFINED (Informationsquelle);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Sachbearbeiter"         
+         !!@ name = A_ALL_6021_03                                          
+         MANDATORY CONSTRAINT DEFINED (Sachbearbeiter);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Standortname"         
+         !!@ name = A_ALL_6021_04                                                   
+         MANDATORY CONSTRAINT DEFINED (Standortname);
+
+         !! Allgemeiner Constraint (gilt für PAA und SAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Steuerung_Fernwirkung"         
+         !!@ name = A_ALL_6021_06                                                            
+         MANDATORY CONSTRAINT DEFINED (Steuerung_Fernwirkung);
+
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY WBW_Basisjahr"         
+         !!@ name = A_PAA_6021_07                                                                     
+         MANDATORY CONSTRAINT DEFINED (WBW_Basisjahr)
+                                                 ;
+         !! PAA Constraint (gilt nur für PAA)
+         !!@ ilivalid.check = error
+         !!@ ilivalid.msg = "MANDATORY Wiederbeschaffungswert"         
+         !!@ name = A_PAA_6021_08                                                                     
+         MANDATORY CONSTRAINT DEFINED (Wiederbeschaffungswert)
+                                                 ;
+      END; !! of SK
+
+
+      
+      
    END Verbands_GEP;
 END VSADSSMINI_2020_LV95_Validierung_A.
